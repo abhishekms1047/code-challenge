@@ -22,22 +22,28 @@ Further improvements:   Events can be processed in parallel by different threads
                         customer activity happened recently.
                         
 Procedure call structure
-main()
-    |-Ingest()- create_tables()
-    |           customer_ingest()
-    |           sitevisit_ingest()
-    |           imageuploded_ingest()
-    |           order_ingest()
-    |           build_LTV_table()
-    |
-    |-TopXSimpleLTVCustomers()
+*main()*
+    *Ingest()- create_tables()
+               customer_ingest()
+               sitevisit_ingest()
+               imageuploded_ingest()                     
+               order_ingest()
+               build_LTV_table()
+    
+    *TopXSimpleLTVCustomers()
                                   
 
+
 INPUT_FILE_PATH= '.\input\input.txt'   -Contains Events
+
 OUTPUT_FILE_PATH='.\output\output.txt' -Contains Customers and their LTV values 
+
 Python version: Python 2.7
+
 sqlite version:'3.8.11'
+
 Logging version:'0.5.1.2'
+
 json version   :'2.0.9'
 
 
