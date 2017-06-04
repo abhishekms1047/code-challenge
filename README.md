@@ -4,50 +4,6 @@ One way to analyze acquisition strategy and estimate marketing cost is to calcul
 
 A simple LTV can be calculated using the following equation: `52(a) x t`. Where `a` is the average customer value per week (customer expenditures per visit (USD) x number of site visits per week) and `t` is the average customer lifespan. The average lifespan for Shutterfly is 10 years.  
 
-
-Program to Ingest and Process Shutterfly Events data and to find top X customers by life time value
-Current Implementation: Events are consumed from a single input source and processed record by record based on type
-                        and placed into database record by record ,further referential integrity is enforced while 
-                        lading records to database to ensure that only for existing customers the events are loaded to 
-                        orders,site visits,Images tables.
-                        After the Ingestion of events,Customer life time value is calculated and maintained in analytics 
-                        table.This table is used for querying the top X customers by LTV.    
-                        
-                        
-Further improvements:   Events can be processed in parallel by different threads.The database should be able to
-                        accept and cater to such multi connections.Referential integrity constraint on Customer Id 
-                        should not be enforced at database level. It must be taken care by the system providing the 
-                        data.
-                        While building analytics table. Delta update can be done only to update records for which
-                        customer activity happened recently.
-                        
-Procedure call structure
-
-* main() *
-    *Ingest()- * create_tables()
-               * customer_ingest()
-               * sitevisit_ingest()
-               * imageuploded_ingest()                     
-               * order_ingest()
-               * build_LTV_table()
-    
-    *TopXSimpleLTVCustomers()
-                                  
-
-
-INPUT_FILE_PATH= '.\input\input.txt'   -Contains Events
-
-OUTPUT_FILE_PATH='.\output\output.txt' -Contains Customers and their LTV values 
-
-Python version: Python 2.7
-
-sqlite version:'3.8.11'
-
-Logging version:'0.5.1.2'
-
-json version   :'2.0.9'
-
-
 ## Code Requirements
 
 Write a program that ingests event data and implements one analytic method, below. You are expected to write clean, well-documented and well-tested code. Be sure to think about performance - what the performance characteristic of the code is and how it could be improved in the future.
