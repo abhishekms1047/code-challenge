@@ -22,13 +22,14 @@ Further improvements:   Events can be processed in parallel by different threads
                         customer activity happened recently.
                         
 Procedure call structure
-*main()*
-    *Ingest()- create_tables()
-               customer_ingest()
-               sitevisit_ingest()
-               imageuploded_ingest()                     
-               order_ingest()
-               build_LTV_table()
+
+* main() *
+    *Ingest()- * create_tables()
+               * customer_ingest()
+               * sitevisit_ingest()
+               * imageuploded_ingest()                     
+               * order_ingest()
+               * build_LTV_table()
     
     *TopXSimpleLTVCustomers()
                                   
