@@ -50,6 +50,9 @@ INPUT_FILE_PATH= '.\input\input.txt'
 OUTPUT_FILE_PATH='.\output\output.txt'
 TOP_N = 3
 
+
+
+
 def create_tables(db_cursor):
     """
     :param db_cursor: This holds the cursor for the data base 
@@ -109,6 +112,9 @@ def create_tables(db_cursor):
         warning_string='Unable to create tables - '+str(ex)
         logging.CRITICAL(warning_string)
 
+        
+        
+        
 def customer_ingest(db_cursor, customer_json, verb):
     """
     This module ingests the customer events in to the Customer table.
@@ -145,6 +151,11 @@ def customer_ingest(db_cursor, customer_json, verb):
     except Exception as e:
         warning_string='Unable to insert the customer record- '+customer_json['key']+'-'+str(e)
         logging.warning(warning_string)
+        
+        
+        
+        
+        
 
 def sitevisit_ingest(db_cursor, sitevisit_json):
     """
@@ -161,6 +172,9 @@ def sitevisit_ingest(db_cursor, sitevisit_json):
     except Exception as e:
         warning_string='Unable to insert the SiteVisit record- '+ sitevisit_json['key']+'-'+str(e)
         logging.warning(warning_string)
+        
+        
+        
 
 def imageuploded_ingest(db_cursor, imageuploaded_json):
     """
@@ -179,6 +193,9 @@ def imageuploded_ingest(db_cursor, imageuploaded_json):
         warning_string = 'Unable to insert the image record- ' + imageuploaded_json['key']+'-'+str(e)
         logging.warning(warning_string)
 
+        
+        
+        
 def order_ingest(db_cursor, orders_json, verb):
     """
     This module ingests the Order events in to the table ,the customer need to be present in the customer table
@@ -212,6 +229,10 @@ def order_ingest(db_cursor, orders_json, verb):
     except Exception as e:
         warning_string = 'Unable to insert the order record- ' + orders_json['key']+'-'+str(e)
         logging.warning(warning_string)
+        
+        
+        
+        
 
 def build_LTV_table(db_cursor):
     """
@@ -266,6 +287,10 @@ def build_LTV_table(db_cursor):
             except Exception as ex:
                 logging.critical(str(ex))
     logging.info('Building  Analytics table-Ended')
+    
+    
+    
+    
 
 def TopXSimpleLTVCustomers(top_n, db_cursor):
     """
@@ -287,6 +312,11 @@ def TopXSimpleLTVCustomers(top_n, db_cursor):
 
     except Exception as ex:
         logging.critical(str(ex))
+        
+        
+        
+        
+        
 
 def Ingest(events, db_cursor):
     """
@@ -328,6 +358,11 @@ def Ingest(events, db_cursor):
     except Exception as ex:
         logging.critical('Exiting the program...' + str(ex))
         exit(100)
+        
+        
+        
+        
+        
 
 def main():
     """
@@ -408,6 +443,8 @@ def main():
         exit(100)
 
 
+        
+        
 if __name__ == "__main__":
     main()
 
